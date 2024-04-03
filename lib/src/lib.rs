@@ -7,6 +7,7 @@
  */
 use hdk::prelude::*;
 use holo_hash::{ActionHash, DnaHash};
+use zome_utils::*;
 
 pub use hc_zome_dna_auth_resolver_core::*;
 pub use hc_zome_dna_auth_resolver_rpc::*;
@@ -170,7 +171,7 @@ where
     let result = get(
         local_cap_action.unwrap(),
         GetOptions {
-            strategy: GetStrategy::Latest,
+            strategy: GetStrategy::Network,
         },
     )?;
     let cap_claim_hash = get_entry_hash_for_element(result.as_ref())?;
@@ -197,7 +198,7 @@ where
             let method_element = get(
                 method_action,
                 GetOptions {
-                    strategy: GetStrategy::Latest,
+                    strategy: GetStrategy::Network,
                 },
             )?;
             create_link(
@@ -261,7 +262,9 @@ where
     match claim {
         // using CapClaim data, locate authenticated method data
         Some(Some((Ok(claim_hash), Some(claim)))) => {
-            let links_result = get_links(claim_hash, link_type, Some(LinkTag::from(())))?;
+            let links_result = get_links(link_input(
+                claim_hash, link_type, Some(LinkTag::from(()))
+            ))?;
             let method_entry_hash = links_result.iter().map(|l| l.target.clone()).next();
 
             if None == method_entry_hash {
@@ -271,7 +274,7 @@ where
             let method_element = get(
                 method_entry_hash.unwrap().into_entry_hash().unwrap(),
                 GetOptions {
-                    strategy: GetStrategy::Latest,
+                    strategy: GetStrategy::Network,
                 },
             )?;
             let method_entry = try_entry_from_element(method_element.as_ref())?;

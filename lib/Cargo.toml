@@ -8,6 +8,7 @@ edition = "2021"
 serde = { workspace = true }
 hdk = { workspace = true }
 holo_hash = { workspace = true }
+zome_utils = { workspace = true }
 
 hc_zome_dna_auth_resolver_rpc = { path = "../rpc" }
 hc_zome_dna_auth_resolver_storage = { path = "../storage" }

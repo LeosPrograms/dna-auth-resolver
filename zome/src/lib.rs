@@ -45,7 +45,7 @@ fn register_dna(DnaRegistration { remote_dna, permission_id, secret }: DnaRegist
     ))?;
 
     // read capability grant back out to return it to the caller
-    let result = get(cap_action, GetOptions { strategy: GetStrategy::Latest })?;
+    let result = get(cap_action, GetOptions { strategy: GetStrategy::Network })?;
     let entry = try_entry_from_element(result.as_ref())?;
 
     match entry.as_cap_grant() {

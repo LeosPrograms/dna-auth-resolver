@@ -1,5 +1,7 @@
 [workspace]
 
+resolver = "2"
+
 members= [
   "core",
   "lib",
@@ -8,10 +10,10 @@ members= [
 ]
 
 [workspace.dependencies]
-hdi = "=0.3.1"
-hdk = "=0.2.1"
-serde = "=1.0.171"
-holochain = "=0.2.1"
-holo_hash = "=0.2.1"
-holochain_serialized_bytes = "=0.0.51"
-holochain_zome_types = { version = "=0.2.1", default-features = false }
+hdi = "0.4.0-beta-dev.30"
+hdk = "0.3.0-beta-dev.34"
+serde = "=1.0.197"
+holo_hash = "=0.3.0-beta-dev.25"
+holochain_serialized_bytes = "=0.0.53"
+holochain_zome_types = { version = "=0.3.0-beta-dev.31", default-features = false }
+zome_utils = { git = "https://github.com/ddd-mtl/zome-utils", branch = "hdk-3.0" }
