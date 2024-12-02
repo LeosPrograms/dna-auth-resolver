@@ -6,7 +6,6 @@
  * @since   2021-03-18
  */
 use hdk::prelude::*;
-use holo_hash::{ActionHash, DnaHash};
 
 pub use hc_zome_dna_auth_resolver_core::*;
 pub use hc_zome_dna_auth_resolver_rpc::*;

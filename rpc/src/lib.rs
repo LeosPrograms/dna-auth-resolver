@@ -1,4 +1,3 @@
-use holo_hash::{DnaHash};
 use holochain_zome_types::capability::CapSecret;
 use holochain_serialized_bytes::prelude::*;
 
