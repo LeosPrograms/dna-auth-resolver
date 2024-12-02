@@ -14,5 +14,5 @@ hdi = "0.5.0-rc"
 hdk = "0.4.0-rc"
 serde = "=1.0.215"
 holo_hash = "=0.3.1"
-holochain_serialized_bytes = "=0.0.53"
+holochain_serialized_bytes = "=0.0.55"
 holochain_zome_types = { version = "=0.3.1", default-features = false }
