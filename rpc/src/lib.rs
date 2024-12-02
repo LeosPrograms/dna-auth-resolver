@@ -6,7 +6,7 @@ use holochain_serialized_bytes::prelude::*;
 ///
 #[derive(Debug, Serialize, Deserialize, SerializedBytes)]
 pub struct DnaRegistration {
-    pub remote_dna: holochain_zome_types::prelude::DnaHash;,
+    pub remote_dna: holochain_zome_types::prelude::DnaHash,
     pub permission_id: String,
     pub secret: CapSecret,
 }
